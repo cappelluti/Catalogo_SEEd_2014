@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalogo SEEd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="js/jquery.ui.map.min.js"></script>
+    <script src="js/funzioni_comuni.js"></script>
+    <script src="js/catalogo.js"></script>
+</head>
+
+<body>
+    <!--CHI SIAMO-->
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">            
+            <h1>Chi siamo</h1>
+            <a href="index_ing.html"
+               data-role="button"
+               data-iconpos="notext"
+               class="ui-btn-right"
+               rel="external"
+               id="bottone_ing">Inglese</a>            
+        </div>
+        <div data-role="content">            
+            <p><br/>Caro lettore,</p>
+            <p>siamo lieti di presentarti il nuovo catalogo SE<em>Ed</em>.</p>
+            <p>SE<em>Ed</em> &egrave; una casa editrice medica che realizza una vasta gamma di pubblicazioni, garantendo sempre contenuti affidabili e di alta qualit&agrave;. Il catalogo SE<em>Ed</em> nasce dalla collaborazione tra la nostra redazione e i maggiori esperti, nazionali e internazionali, delle diverse aree terapeutiche, con lo scopo di fornire un valido supporto al medico nella sua pratica clinica.</p>
+            <p>Nel corso degli ultimi anni, la produzione editoriale SE<em>Ed</em> ha fatto registrare molti cambiamenti. Infatti noi crediamo fermamente che la tecnologia non sia antitetica all&lsquo;editoria. Al contrario, l&lsquo;innovazione &egrave; essenziale per migliorare l&lsquo;accesso ai contenuti e il loro utilizzo. Ecco perch&eacute; tutto il catalogo SE<em>Ed</em> &egrave; disponibile in e-book, offrendo non solo funzioni aggiuntive, come la ricerca a testo libero e collegamenti interattivi, ma anche strumenti scaricabili, come software e calcolatori, di immediato utilizzo nel quotidiano.</p>
+            <p>Speriamo quindi che tu possa trovare nel nostro catalogo spunti interessanti per la tua attivit&agrave; e ti invitiamo a contattarci per ogni ulteriore informazione.</p>
+            <div data-role="controlgroup" style="margin-top:2em; margin-bottom:2em">
+                <a data-role="button" href='#' onclick="vai('http://www.edizioniseed.it')">www.edizioniseed.it</a>
+                <a data-role="button" href="mailto:info@edizioniseed.it">info@edizioniseed.it</a>
+                <a data-role="button" href="tel:+390115660258">+39 011.566.02.58</a>
+            </div>
+            <div class="box_dati">
+                <div style="display:inline-block; font-style:italic">
+                    <img src="img/sede_SEEd.jpg" class="cover"/>
+                    <p>SE<em>Ed</em> &egrave; una casa editrice specializzata in medicina, fondata nel 2000 a Torino.</p>
+                    <p>Attraverso collaborazioni con opinion leader e partnership con tutte le principali aziende farmaceutiche, SE<em>Ed</em> offre contenuti innovativi e di alta qualit&agrave;: libri, e-book, CD Rom, app e riviste.</p>
+                </div>
+                <div id="mappa" style="margin: 0.5em 0 0.5em "></div>
+                <p>Piazza Carlo Emanuele II, 19 &ndash; 10123 Torino, Italy</p>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" id="menu_base">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-transition="none" data-role="botton" data-icon="home">Chi siamo</a></li>
+                    <li><a href="#libri" data-transition="none" data-role="botton" data-icon="grid">Libri</a></li>
+                    <li><a href="#riviste" data-transition="none" data-role="botton" data-icon="gear">Riviste</a></li>
+		</ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--LISTA CATALOGO LIBRI-->
+    <div data-role="page" id="libri">
+        <div data-role="header" data-position="fixed">
+            <h1>I libri SE<em>Ed</em></h1>
+            <a href="index_ing.html#libri"
+               data-role="button"
+               data-iconpos="notext"
+               class="ui-btn-right"
+               rel="external"
+               id="bottone_ing">Inglese</a>
+        </div>
+        <div data-role="content">
+            <ul id="lista" data-role="listview" data-inset="true" data-filter="true" data-autodividers="true" data-filter-placeholder="Cerca pubblicazione">  
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed" id="menu_base">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-transition="none" data-role="botton" data-icon="home">Chi siamo</a></li>
+                    <li><a href="#libri" data-transition="none" data-role="botton" data-icon="grid">Libri</a></li>
+                    <li><a href="#riviste" data-transition="none" data-role="botton" data-icon="gear">Riviste</a></li>
+		</ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--SCHEDA SINGOLA PUBBLICAZIONE-->
+    <div data-role="page" id="scheda">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="botton" data-icon="back" data-iconpos="notext">Indietro</a>
+            <h1>I libri SE<em>Ed</em></h1>
+            <a href="#"
+               data-role="button"
+               data-iconpos="notext"
+               class="ui-btn-right"
+               rel="external"
+               id="bottone_ing">Inglese</a>
+        </div>
+        <div data-role="content">
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href=""
+                   class="pul_indietro"
+                   data-role="button"
+                   data-icon="arrow-l"
+                   data-iconpos="notext"
+                   onclick="crea_scheda(this.id)"
+                   style="margin-right:0.4em; border-right:1px solid #ccc"></a>
+                <a href="#"
+                   class="pul_avanti"
+                   data-role="button"
+                   data-icon="arrow-r"
+                   data-iconpos="notext"
+                   onclick="crea_scheda(this.id)"></a>
+            </div>            
+            <div id="contenuto_scheda"></div>
+            <a class="pul_acquista" data-role="button" href='#' onclick="vai('http://www.edizioniseed.it/libro.aspx?id='+this.id)" id="0">Acquista</a>
+        </div>
+        <div data-role="footer" data-position="fixed" id="menu_base">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-transition="none" data-role="botton" data-icon="home">Chi siamo</a></li>
+                    <li><a href="#libri" data-transition="none" data-role="botton" data-icon="grid">Libri</a></li>
+                    <li><a href="#riviste" data-transition="none" data-role="botton" data-icon="gear">Riviste</a></li>
+		</ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--RIVISTE-->
+    <div data-role="page" id="riviste">
+        <div data-role="header" data-position="fixed">
+            <h1>Le riviste SE<em>Ed</em></h1>
+            <a href="index_ing.html#riviste"
+               data-role="button"
+               data-iconpos="notext"
+               class="ui-btn-right"
+               rel="external"
+               id="bottone_ing">Inglese</a>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsible-set">
+                <div class="presentazione_riviste" data-role="collapsible" data-collapsed="false">
+                    <h3>Le riviste</h3>
+                    <h4>OJS</h4>
+                    <p>Per la gestione e la pubblicazione di tutte le riviste SE<em>Ed</em> viene utilizzata la piattaforma OJS (<em>Open Journals System</em>). Si tratta di una piattaforma open source sviluppata per mantenere l’efficienza del processo editoriale e migliorare la qualit&agrave; scientifica e complessiva della rivista.</p>
+                    <h4>Il modello open access</h4>
+                    <p><img src="img/logo_CC.png" class="logo_CC"/>Il modello open access di SE<em>Ed</em> permette agli utenti di leggere, scaricare, copiare, distribuire, stampare, cercare tutti i full text (in html) degli articoli pubblicati (per l’accesso ai pdf &egrave; necessario sottoscrivere l’abbonamento). I contenuti delle riviste SE<em>Ed</em> sono regolate da licenza Creative Commons 3.0 che consente di scaricare e condividere i lavori originali a condizione che non vengano modificati n&eacute; utilizzati a scopi commerciali e attribuendo la paternit&agrave; dell’opera all’autore.
+                    <p>Il modello open access di SE<em>Ed</em> permette di coniugare i vantaggi dell’offerta free con le prerogative del business tradizionale, affiancando ai contenuti di libero accesso dei contenuti integrativi dal fondamentale valore aggiunto. Inoltre la registrazione obbligatoria gratuita permette di tracciare gli utenti. Grazie all’interattivit&agrave; &egrave; possibile inserire commenti e verificare l’accoglienza di un articolo.</p> 
+                    <p>I vantaggi dell’open access:</p>
+                    <ul>
+                        <li>Maggiore visibilit&agrave; per l’opinion leader coinvolto</li>
+                        <li>Più ampia diffusione dei dati dell’articolo</li>
+                        <li>Inclusione nei database open access e nei repositories istituzionali</li>
+                        <li>Partecipazione a un movimento in ascesa di condivisione etica dei risultati della ricerca</li>
+                    </ul>
+                    <h4>Il processo di peer review</h4>
+                    <p>Il processo di peer review prevede l’invio dei manoscritti a revisori esterni, esperti della materia, che hanno il compito di rivedere criticamente il lavoro evidenziandone punti di forza, carenze, validit&agrave; e rilevanza.</p>
+                    <p>Il processo di peer review garantisce l’elevata qualit&agrave; e scientificit&agrave; dei contenuti.</p>
+                    <p>Il processo di peer review &egrave; in doppio cieco: gli autori non conoscono i nomi dei revisori e viceversa, garantendo in questo modo l’imparzialit&agrave; del giudizio.</p>
+                </div>
+                
+                <div data-role="collapsible">
+                    <h3>Farmeconomia. Health Economics and Therapeutic Pathways</h3>
+                    <p><a href="#" onclick="vai('http://journals.edizioniseed.it/index.php/FE')" data-role="button" data-mini="true">journals.edizioniseed.it/index.php/FE</a></p>                
+                    <div class="titolo_scheda">
+                        <img src="img/Rivista Farmeconomia.png" class="cover">
+                        <div class="box_dati_riviste">
+                            <div class="icona_lingua">
+                                <img src="img/icona_ita.png">&nbsp;&nbsp;<img src="img/icona_ing.png">
+                            </div>
+                            <ul>
+                                <li>Argomento: farmacoeconomia ed economia sanitaria</li>
+                                <li>Anno di nascita: 2000</li>
+                                <li>Periodicit&agrave;: trimestrale (marzo/giugno/settembre/dicembre)</li>
+                                <li>Indicizzata su: DOAJ – Directory of Open Access Journals, OpenArchives, GoogleScholar, JournalTOCs, Geneva Foundation for Medical Education and Research, JournalSeek, LibTOC, SHERPA/RoMEO, Science Gate</li>
+                                <li>Archivi: Biblioteca Nazionale Centrale di Firenze</li>
+                                <li>Board internazionale, on line, open access, peer reviewed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Che cos'&egrave;</h4>
+                    <ul>
+                        <li>Rivista che affronta argomenti di attualit&agrave; in campo farmacoeconomico</li>
+                        <li>Strumento di aggiornamento non solo per gli esperti del settore ma per tutti coloro che sono coinvolti nella gestione delle risorse sanitarie e che hanno interesse in farmacoeconomia, economia sanitaria, politica sanitaria e sanit&agrave; pubblica</li>
+                    </ul>
+                    <h4>Di cosa parla</h4>
+                    <ul>
+                        <li>Analisi e modelli farmacoeconomici: analisi di costo-efficacia, costo-utilit&agrave;, costo-beneficio, budget impact e di minimizzazione dei costi</li>
+                        <li>Valutazioni economiche di farmaci, di patologie e di tutte le tipologie di interventi di assistenza sanitaria, di iniziative politiche per la salute</li>
+                        <li>Report HTA</li>
+                        <li>Analisi dei sistemi di rimborsabilit&agrave; dei farmaci</li>
+                        <li>Review della letteratura</li>
+                        <li>Novit&agrave; normative</li>
+                    </ul>
+                    <h4>Perch&eacute; sceglierla</h4>
+                    <ul>
+                        <li>Da più di 10 anni punto di riferimento per chi si occupa di farmacoeconomia in Italia</li>
+                        <li>Articoli in inglese, con ampia readership</li>
+                        <li>Tratta a 360 gradi le diverse aree terapeutiche sviluppando approfondimenti originali sul tema della farmacoeconomia</li>
+                        <li>Permette di raggiungere il target scelto con una rivista prestigiosa</li>
+                        <li>La pubblicazione di uno studio farmacoeconomico obiettivo e metodologicamente corretto, pubblicato su una rivista autorevole peer reviewed, &egrave; un ottimo mezzo di supporto per la strategia di marketing</li>
+                    </ul>
+                    <h4>Punti di forza</h4>
+                    <ul>
+                        <li><b>Autorevolezza</b>. Board internazionale, peer reviewed</li>
+                        <li><b>Accessibilit&agrave;</b>. Open access</li>
+                        <li><b>Reperibilit&agrave;</b>. Indicizzata in database biomedici</li>
+                        <li><b>Internazionalit&agrave;</b>. Ampia scelta di autori tra opinion leader di tutto il mondo</li>
+                    </ul>
+                </div>
+                
+                
+                <div data-role="collapsible">
+                    <h3>Clinical Management Issues</h3>
+                    <p><a href="#" onclick="vai('http://journals.edizioniseed.it/index.php/cmi')" data-role="button" data-mini="true">journals.edizioniseed.it/index.php/cmi</a></p>                
+                    <div class="titolo_scheda">
+                        <img src="img/Rivista CMI.png" class="cover">
+                        <div class="box_dati_riviste">
+                            <div class="icona_lingua">
+                                <img src="img/icona_ita.png">&nbsp;&nbsp;<img src="img/icona_ing.png">
+                            </div>
+                            <ul>
+                                <li>Argomento: casi clinici in tutte le aree terapeutiche</li>
+                                <li>Anno di nascita: 2007</li>
+                                <li>Periodicit&agrave;: trimestrale (marzo/giugno/settembre/dicembre)</li>
+                                <li>Indicizzata su: EMCare, JournalSeek, SHERPA/RoMEO, NewJour - Elecronic Journals and Newsletters, Free Medical Journals</li>
+                                <li>Archivi: Biblioteca Nazionale Centrale di Firenze</li>
+                                <li>On line, open access, peer reviewed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Che cos'&egrave;</h4>
+                    <ul>
+                        <li>Raccolta di casi clinici e articoli di gestione clinica nelle diverse aree terapeutiche</li>
+                        <li>Strumento per l’applicazione delle linee guida nella pratica clinica e mezzo di confronto e dialogo tra specialisti e medici di famiglia</li>
+                    </ul>
+                    <h4>Di cosa parla</h4>
+                    <ul>
+                        <li>Farmaci<ul><li>Corretto impiego del farmaco (dosi, modi e tempi di somministrazione)</li><li>Dai trial al singolo paziente: evidenze dell’efficacia nel soggetto con potenziali pluripatologie, et&agrave; avanzata, ecc.</li></ul></li>
+                        <li>Patologie<ul><li>Difficolt&agrave; diagnostiche e terapeutiche</li><li>Quelle rare, quelle comuni, quelle sottodiagnosticate, quelle di difficile gestione</li></ul></li>
+                        <li>Collaborazione MMG-specialista<ul><li>Ruoli, funzioni, comunicazione, dialogo, collaborazione</li></ul></li>
+                    </ul>
+                    <h4>Perch&eacute; sceglierla</h4>
+                    <ul>
+                        <li>I casi clinici rappresentano la base del ragionamento diagnostico</li>
+                        <li>I casi sono strutturati seguendo l’effettivo ragionamento clinico (domande, punti critici), in modo che il lettore possa identificarsi nel curante</li>
+                        <li>È una rivista autorevole: autori e board sono scelti tra gli opinion leader; tutti i casi sono sottoposti a peer review</li>
+                        <li>Permette di raggiungere il target scelto con una rivista prestigiosa</li>
+                    </ul>
+                    <h4>Punti di forza</h4>
+                    <ul>
+                        <li><b>Autorevolezza</b>. Ampia scelta di autori tra opinion leader, peer review</li>
+                        <li><b>Confronto</b>. Permette dialogo e interazione tra specialista e MMG</li>
+                        <li><b>Approccio centrato sul paziente</b>. Il caso clinico permette di mettere in luce le reali problematiche riferite allo specifico paziente</li>
+                        <li><b>Chiarezza</b>. Flow chart finale, box riassuntivi e domande rendono chiara e coinvolgente la trattazione</li>
+                    </ul>
+                </div>
+                
+                
+                <div data-role="collapsible">
+                    <h3>Reviews in Health Care</h3>
+                    <p><a href="#" onclick="vai('http://journals.edizioniseed.it/index.php/RHC')" data-role="button" data-mini="true">journals.edizioniseed.it/index.php/RHC</a></p>                
+                    <div class="titolo_scheda">
+                        <img src="img/Rivista RHC.png" class="cover">
+                        <div class="box_dati_riviste">
+                            <div class="icona_lingua">
+                                <img src="img/icona_ita.png">&nbsp;&nbsp;<img src="img/icona_ing.png">
+                            </div>
+                            <ul>
+                                <li>Argomento: revisioni narrative e sistematiche nelle diverse aree terapeutiche</li>
+                                <li>Anno di nascita: 2010</li>
+                                <li>Periodicit&agrave;: trimestrale (gennaio, aprile, luglio, ottobre)</li>
+                                <li>Indicizzata su: DOAJ – Directory of Open Access Journals, OpenArchives, GoogleScholar, JournalTOCs, JournalSeek, LibTOC, SHERPA/RoMEO, Science Gate, NewJour - Elecronic Journals and Newsletters, Free Medical Journals, Ulrich's Periodicals Directory, wiki.openarchives, Index Copernicus Master List</li>
+                                <li>Archivi: HKU Libraries, HesburgLibraries, Biblioteca ISCTE-UIL, Biblioteca CCG-IBT UNAM, Biblioteca Nazionale Centrale di Firenze</li>
+                                <li>Board internazionale, on line, open access, peer reviewed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Che cos'&egrave;</h4>
+                    <ul>
+                        <li>Raccolta di revisioni narrative e sistematiche nelle diverse aree terapeutiche</li>
+                        <li>Strumento di aggiornamento per gli specialisti nazionali e internazionali</li>
+                    </ul>
+                    <h4>Di cosa parla</h4>
+                    <ul>
+                        <li>Farmaci<ul><li>Efficacia, sicurezza, tollerabilit&agrave;</li><li>Prodotti in lancio, in sviluppo, di uso consolidato, uso off-label</li><li>Aspetti economici</li></ul></li>
+                        <li>Patologie<ul><li>Nuovi approcci terapeutici, aspetti critici, malattie emergenti, malattie sottostimate</li><li>Aspetti economici, clinici, gestionali, organizzativi</li></ul></li>
+                        <li>Devices<ul><li>Efficacia, innovazione, HTA</li></ul></li>
+                    </ul>
+                    <h4>Perch&eacute; sceglierla</h4>
+                    <ul>
+                        <li>Le revisioni sono uno dei mezzi preferiti dai clinici per acquisire nuove conoscenze</li>
+                        <li>Le revisioni sono il mezzo ottimale per diffondere le evidenze a favore di un farmaco o per far emergere la consapevolezza su un argomento critico</li>
+                        <li>Ha un elevato impatto sul lettore, grazie alla presenza di autori e board scelti tra gli opinion leader</li>
+                        <li>Permette di raggiungere il target scelto con una rivista prestigiosa</li>
+                        <li>La pubblicazione di una revisione in una rivista peer reviewed &egrave; un mezzo credibile e autorevole per supportare la strategia di marketing</li>
+                    </ul>
+                    <h4>Punti di forza</h4>
+                    <ul>
+                        <li><b>Autorevolezza</b>. Board e autori internazionali, peer reviewed</li>
+                        <li><b>Affidabilit&agrave;</b>. Informazioni evidence-based</li>
+                        <li><b>Utilit&agrave; pratica</b>. Dai dati di letteratura alla pratica clinica</li>
+                        <li><b>Leggibilit&agrave;</b>. Box e tabelle per una lettura comoda e agevole</li>
+                    </ul>
+                </div>
+                
+                
+                <div data-role="collapsible">
+                    <h3>Pratica Medica &amp;&nbsp;Aspetti Legali</h3>
+                    <p><a href="#" onclick="vai('http://journals.edizioniseed.it/index.php/PMeAL')" data-role="button" data-mini="true">journals.edizioniseed.it/index.php/PMeAL</a></p>                
+                    <div class="titolo_scheda">
+                        <img src="img/Rivista Pratica Medica.png" class="cover">
+                        <div class="box_dati_riviste">
+                            <div class="icona_lingua">
+                                <img src="img/icona_ita.png">
+                            </div>
+                            <ul>
+                                <li>Argomento: aspetti normativi/legali dell’attivit&agrave; medica</li>
+                                <li>Anno di nascita: 2007</li>
+                                <li>Periodicit&agrave;: trimestrale (febbraio, maggio, agosto, novembre)</li>
+                                <li>Indicizzata su: SHERPA/RoMEO</li>
+                                <li>Archivi: Biblioteca Nazionale Centrale di Firenze</li>
+                                <li>On line, open access</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Che cos'&egrave;</h4>
+                    <ul>
+                        <li>Raccolta di articoli su malpractice, rischio clinico, sicurezza del paziente</li>
+                        <li>Strumento di confronto e dialogo tra professionisti sanitari e avvocati sui temi più controversi</li>
+                    </ul>
+                    <h4>Di cosa parla</h4>
+                    <ul>
+                        <li>Errori<ul><li>Come riconoscerli, come prevenirli, come condividerli</li><li>Individuare le responsabilit&agrave; senza incolpare il medico</li></ul></li>
+                        <li>Sentenze<ul><li>Cosa ne pensa l’avvocato</li><li>Cosa ne pensa il clinico</li></ul></li>
+                        <li>Farmaci<ul><li>Come usarli al meglio, evitando reazioni avverse e interazioni</li><li>Come prescriverli correttamente, secondo le normative AIFA ed EMEA</li></ul></li>
+                        <li>Leggi e normative<ul><li>Quali sono, come interpretarle, come applicarle</li></ul></li>
+                    </ul>
+                    <h4>Perch&eacute; sceglierla</h4>
+                    <ul>
+                        <li>Gli aspetti legali connessi alla professione medica sono uno degli argomenti più sentiti degli ultimi anni</li>
+                        <li>Gli articoli sono un modo efficace per far comprendere un linguaggio settoriale</li>
+                        <li>Ha un elevato impatto sul lettore, grazie alla presenza di autori e board scelti tra gli opinion leader</li>
+                        <li>Permette di raggiungere il target scelto con una rivista prestigiosa</li>
+                    </ul>
+                    <h4>Punti di forza</h4>
+                    <ul>
+                        <li><b>Autorevolezza</b>. Clinici scelti tra gli opinion leader e avvocati esperti in malpractice medica</li>
+                        <li><b>Confronto</b>. Permette dialogo e interazione tra medico e avvocato</li>
+                        <li><b>Utilit&agrave; quotidiana</b>. Indicazioni pratiche per evitare l’errore in corsia e aumentare la sicurezza del paziente</li>
+                        <li><b>Chiarezza</b>. Rende semplice il linguaggio delle sentenze</li>
+                    </ul>
+                </div>
+            </div>
+                
+        </div>
+        <div data-role="footer" data-position="fixed" id="menu_base">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#home" data-transition="none" data-role="botton" data-icon="home">Chi siamo</a></li>
+                    <li><a href="#libri" data-transition="none" data-role="botton" data-icon="grid">Libri</a></li>
+                    <li><a href="#riviste" data-transition="none" data-role="botton" data-icon="gear">Riviste</a></li>
+		</ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

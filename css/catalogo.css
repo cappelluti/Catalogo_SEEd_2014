@@ -1,0 +1,144 @@
+/*Personalizzazioni da css di jquerymobile
+	blu scuro - #234894
+	blu chiaro - #6D8DC8
+*/
+
+.ui-bar-a, .ui-btn-up-a  {
+	border: 1px solid 		#1a346a /*{a-bar-border}*/;
+	background: 			#1a346a /*{a-bar-background-color}*/;
+	color: 					#fff /*{a-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{a-bar-shadow-x}*/ -1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #000 /*{a-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #1f3f81 /*{a-bar-background-start}*/), to( #1a346a /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #234894 /*{a-bar-background-start}*/, #1a346a /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #234894 /*{a-bar-background-start}*/, #1a346a /*{a-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #234894 /*{a-bar-background-start}*/, #1a346a /*{a-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #234894 /*{a-bar-background-start}*/, #1a346a /*{a-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #234894 /*{a-bar-background-start}*/, #1a346a /*{a-bar-background-end}*/);
+}
+
+.ui-bar-b, .ui-btn-hover-a {
+	border: 1px solid 		#6D8DC8 /*{b-bar-border}*/;
+	background: 			#6D8DC8 /*{b-bar-background-color}*/;
+	color: 					#fff /*{b-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{b-bar-shadow-x}*/ 1px /*{b-bar-shadow-y}*/ 0 /*{b-bar-shadow-radius}*/ #3e6790 /*{b-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #9cb1da /*{b-bar-background-start}*/), to( #6D8DC8 /*{b-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #9cb1da /*{b-bar-background-start}*/, #6D8DC8 /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #9cb1da /*{b-bar-background-start}*/, #6D8DC8 /*{b-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #9cb1da /*{b-bar-background-start}*/, #6D8DC8 /*{b-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #9cb1da /*{b-bar-background-start}*/, #6D8DC8 /*{b-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #9cb1da /*{b-bar-background-start}*/, #6D8DC8 /*{b-bar-background-end}*/);
+}
+
+h3, .ui-btn-up-c, h4 {
+	color:#234894;
+	line-height:120%;
+	margin-top:0em;
+	margin-bottom:0.4em;
+}
+
+#libri h3 span.sottotitolo{
+	font-size:85%;
+	font-weight: normal;
+}
+
+.ui-li .ui-btn-text a{
+	margin:5px;
+}
+.ui-li .ui-btn-text a img{
+	margin-left:5px;
+	box-shadow: 3px 3px 6px #bfcde8;
+}
+.ui-li{
+	border-left: 0px;
+	border-right: 0px;
+}
+p {
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+#contenuto_scheda h1, #contenuto_scheda h3, #contenuto_scheda h4{
+	line-height:120%;
+	color: #234894;
+	padding: 0;
+}
+#contenuto_scheda h1, #contenuto_scheda h3{
+	margin:0.1em 0 0.1em 0;
+}
+#contenuto_scheda h4{
+	margin:1.5em 0 0.2em 0;
+}
+#bottone_ing,#bottone_ita{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 30px;
+	height: 20px;
+	margin-top:3px;
+	margin-right:3px;
+}
+#bottone_ing{
+	background: url(../img/icona_ing.png) no-repeat;
+}
+#bottone_ita{
+	background: url(../img/icona_ita.png) no-repeat;
+}
+
+.cover{
+	float:left;
+	margin-right: 2em;
+	border: 1px solid #c5c5c5;
+	box-shadow: 6px 6px 12px #bfcde8;
+}
+.icona_lingua{
+	float:right;
+}
+.titolo_scheda{
+	float: left;
+	display: inline;
+	width: 100%;
+	margin: 2em 0 2em 0;
+}
+.autori{
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 1.5em;
+}
+#contenuto_scheda ul{
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#contenuto_scheda .box_dati{
+	clear:both;
+}
+.box_dati, .box_dati_riviste{
+	margin-top: 1.3em;
+	margin-bottom: 1.3em;
+	padding: 1em;
+	border-radius: 10px;
+	border: 1px solid #6D8DC8;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ffffff /*{b-bar-background-start}*/), to( #c8d3ea /*{b-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ffffff /*{b-bar-background-start}*/, #c8d3ea /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ffffff /*{b-bar-background-start}*/, #c8d3ea /*{b-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ffffff /*{b-bar-background-start}*/, #c8d3ea /*{b-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #ffffff /*{b-bar-background-start}*/, #c8d3ea /*{b-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ffffff /*{b-bar-background-start}*/, #c8d3ea /*{b-bar-background-end}*/);
+}
+.box_dati_riviste{
+	margin-left: 1.3em;	
+}
+.presentazione_riviste ul{
+	margin-top:0;
+	margin-bottom: 0;
+}
+.presentazione_riviste h4{
+	margin-top: 1.5em;
+}
+.logo_CC{
+	float:right;
+	margin: 1em;
+}
