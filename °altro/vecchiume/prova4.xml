@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report schema="1.0">
+   <Item name="cabinet" id="1" />
+   <Item name="cabinet" id="2" />
+   <Item name="cabinet" id="3" />
+   <DocumentProperties>
+      <PageProperties name="Page 1" pagenum="1" />
+      <Paths>
+         <Data>C:\Data\</Data>
+         <Library>C:\Library\</Library>
+         <Table>C:\Table\</Table>
+         <Picture>C:\Bitmap\</Picture>
+         <Report>C:\Report\</Report>
+         <Template>C:\Template\</Template>
+         <Backup>C:\Backup\</Backup>
+         <Program>C:\</Program>
+      </Paths>
+      <Application>
+         <Product>CabPro</Product>
+         <Family>Software</Family>
+         <Version>8.0.61.2700</Version>
+         <Build>2013.10.4.0</Build>
+         <Desc />
+         <Company>Q1</Company>
+         <Account>QSystems Pty Ltd</Account>
+      </Application>
+   </DocumentProperties>
+</Report>

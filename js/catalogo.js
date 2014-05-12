@@ -4,10 +4,10 @@ function carica_xml() {
     //Mappa iniziale
     $("#mappa").height (screen.height/3);
     var latlng = new google.maps.LatLng (45.066691, 7.688311);
-    var map = new google.maps.Map ($("#mappa")[0], {
+    var map = new google.maps.Map ($("#mappa")[0],{
     zoom : 15,
     center : latlng,
-    mapTypeId : google.maps.MapTypeId.ROADMAP });
+    mapTypeId : google.maps.MapTypeId.ROADMAP});
     new google.maps.Marker ({ 
         map : map, 
         animation : google.maps.Animation.DROP,
@@ -19,7 +19,7 @@ function carica_xml() {
         var num_scheda = -1;
         schede_tot = 0;
         $(data).find("pubblicazione").each(function() {
-            schede_tot++
+            schede_tot++;
             num_scheda++;
             
             //Estraggo dati utili
@@ -38,7 +38,18 @@ function carica_xml() {
             output.push("</a></li>");
         });
         //Associo la lista di <li> montata prima al div #lista
-        $("#lista").append(output.join("")).listview("refresh");
+        $("#lista").append(output.join(""));
+		//Ordino
+		var mylist = $("#lista");
+		var listitems = mylist.children('li').get();
+		listitems.sort(function(a, b) {
+		   var compA = $(a).text().toUpperCase();
+		   var compB = $(b).text().toUpperCase();
+		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		})
+		$.each(listitems, function(idx, itm) { mylist.append(itm); });
+		
+		$("#lista").listview("refresh");
     });
     
     //Associo lo swipe dx e sx alla schermata della scheda
@@ -101,7 +112,10 @@ function crea_scheda(num_scheda){
                          output.push("<img src='img/icona_ita.png'>");                             
                     }
                 output.push("</div>");
-                output.push("<p>Data di pubblicazione: <b>"+data_pubblicazione+"</b></p>");
+				
+				if (data_pubblicazione.length>0){
+					output.push("<p>Data di pubblicazione: <b>"+data_pubblicazione+"</b></p>");
+				}
                 output.push("<div class='ui-grid-a'>");
                     output.push("<div class='ui-block-a'>");
                         output.push("<h4>Cartaceo</h4>");
@@ -129,13 +143,17 @@ function crea_scheda(num_scheda){
                 output.push("</div>");
             output.push("</div>");
             output.push("<p>&nbsp;</p>");
-            output.push(presentazione);
-            output.push("<h4>Indice</h4>");
-            output.push(indice);
+            output.push(presentazione);			
+			if (indice.length>0){
+				output.push("<h4>Indice</h4>");
+				output.push(indice);
+			}
             output.push("<h4>Autori</h4>");
             output.push(autori);
-            output.push("<h4>Destinatari</h4>");
-            output.push(destinatari);
+			if (destinatari.length>0){
+				output.push("<h4>Destinatari</h4>");
+				output.push(destinatari);
+			}
             if (recensioni.length>16) {
                 output.push("<h4>Recensioni</h4>");
                 output.push(recensioni);

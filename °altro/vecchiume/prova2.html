@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+<body>
+<div id="example" />
+
+
+
+
+
+
+
+<script>
+	var lista_file=["scheda1.xml","scheda2.xml","scheda3.xml"];
+	displayResult()
+	function loadXMLDoc(filename){
+		if (window.ActiveXObject){
+			xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} else {
+			xhttp = new XMLHttpRequest();
+		}
+		xhttp.open("GET", filename, false);
+		try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+		xhttp.send("");
+		return xhttp.responseXML;
+	}
+
+	function displayResult(){
+		xml = loadXMLDoc(lista_file[0]);
+		xsl = loadXMLDoc("filtro per lista.xslt");
+		// code for IE
+		if (window.ActiveXObject || xhttp.responseType == "msxml-document"){
+			ex = xml.transformNode(xsl);
+			document.getElementById("example").innerHTML = ex;
+			//document.write(ex)
+		}
+		// code for Chrome, Firefox, Opera, etc.
+		else if (document.implementation && document.implementation.createDocument){
+			xsltProcessor = new XSLTProcessor();
+			xsltProcessor.importStylesheet(xsl);
+			resultDocument = xsltProcessor.transformToFragment(xml, document);
+			document.getElementById("example").appendChild(resultDocument);
+			//document.write(resultDocument)
+		}
+	}
+	
+
+</script>
+</body>
+</html>
+
+
+

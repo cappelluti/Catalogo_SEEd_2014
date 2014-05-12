@@ -91,7 +91,13 @@
    -->
 
    <!-- Define app icon for each platform. -->
-   <icon src="icon.png" />
+   <icon src="icon_android.png" gap:platform="android"/>
+   <icon src="icon_ios.png" gap:platform="ios"/>
+   
+   
+   
+   
+   
    <!-- 
       <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
       <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<DELIVERY>
+    <SUMMARY>
+        <TITLE>Attempted to deliver</TITLE>
+        <ATTEMPTED>100</ATTEMPTED>
+        <TOTAL>21256</TOTAL>
+    </SUMMARY>
+    <SUMMARY>
+        <TITLE>Hard Bounces</TITLE>
+        <ATTEMPTED>.68</ATTEMPTED>
+        <TOTAL>145</TOTAL>
+    </SUMMARY>
+    <SUMMARY>
+        <TITLE>Soft Bounces</TITLE>
+        <ATTEMPTED>4.48</ATTEMPTED>
+        <TOTAL>953</TOTAL>
+    </SUMMARY>
+    <SUMMARY>
+        <TITLE>Successfully delivered</TITLE>
+        <ATTEMPTED>94.8</ATTEMPTED>
+        <TOTAL>20158</TOTAL>
+    </SUMMARY>
+</DELIVERY>

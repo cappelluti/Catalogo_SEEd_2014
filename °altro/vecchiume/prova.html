@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<script>
+			var lista_file=["scheda1.xml","scheda2.xml","scheda3.xml"];
+
+			// Load XML 
+			var xml = new ActiveXObject("Microsoft.XMLDOM");
+			xml.async = false;
+			xml.load(lista_file[0]);
+
+			// Load the XSL
+			var xsl = new ActiveXObject("Microsoft.XMLDOM");
+			xsl.async = false;
+			xsl.load("filtro per lista.xslt");
+
+			// Transform
+			document.write(xml.transformNode(xsl));
+		</script>
+	</body>
+</html>
+
+
+
+
+

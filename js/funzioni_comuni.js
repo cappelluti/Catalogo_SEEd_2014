@@ -11,7 +11,7 @@ function vai(url){
 function pulisci_url(img_copertina){
     img_copertina=img_copertina.substring(27);
     while(img_copertina.indexOf("%20") != -1){img_copertina=img_copertina.replace("%20"," ");}
-    while(img_copertina.indexOf("%C3%A0") != -1){img_copertina=img_copertina.replace("%C3%A0","à");}
+    while(img_copertina.indexOf("%C3%A0") != -1){img_copertina=img_copertina.replace("%C3%A0","a");}
     while(img_copertina.indexOf("'") != -1){img_copertina=img_copertina.replace("'","");}
     return "http://www.edizioniseed.it/app_catalogo/img/"+img_copertina;
 }

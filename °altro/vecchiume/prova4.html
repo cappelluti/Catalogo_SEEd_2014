@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+  <head>
+    
+	
+    <script>
+	function loadXMLDoc(dname)
+		{
+		  if (window.ActiveXObject)
+		  {
+			xmldom = new ActiveXObject("Microsoft.XMLDOM");
+			xmldom.async = false;
+			xmldom.load(dname);
+			return xmldom;
+		  }
+		  else
+		  {
+			xhttp=new XMLHttpRequest();
+			xhttp.open("GET",dname,false);
+			xhttp.send("");
+			return xhttp.responseXML;
+		  }
+		}
+
+		function displayResult(stylename)
+		{
+		  xml=loadXMLDoc("prova4.xml");
+		  xsl=loadXMLDoc(stylename);
+
+		  if (window.ActiveXObject)
+		  {
+			document.getElementById("report").innerHTML=xml.transformNode(xsl);
+		  }
+		  else
+		  {
+			xsltProcessor=new XSLTProcessor();
+			xsltProcessor.importStylesheet(xsl);
+			resultDocument = xsltProcessor.transformToFragment(xml,document);
+			if (document.getElementById("report").hasChildNodes())
+			{
+			  document.getElementById("report").removeChild(document.getElementById("report").lastChild);
+			}
+			document.getElementById("report").appendChild(resultDocument);
+		  }
+		}
+	
+	</script>
+
+  </head>
+  <body onload="displayResult('prova4_filtro.xsl');">
+    <div id="report"></div>
+  </body>
+</html>

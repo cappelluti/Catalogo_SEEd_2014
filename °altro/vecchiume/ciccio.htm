@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.19258"></HEAD>
+<BODY>
+<SCRIPT>
+			var lista_file=["scheda1.xml","scheda2.xml","scheda3.xml"];
+
+			// Load XML 
+			var xml = new ActiveXObject("Microsoft.XMLDOM");
+			xml.async = false;
+			xml.load(lista_file[0]);
+
+			// Load the XSL
+			var xsl = new ActiveXObject("Microsoft.XMLDOM");
+			xsl.async = false;
+			xsl.load("filtro per lista.xslt");
+
+			// Transform
+			document.write(xml.transformNode(xsl));
+		</SCRIPT>
+</BODY></HTML>

@@ -39,7 +39,18 @@ function carica_xml() {
             output.push("</a></li>");
         });
         //Associo la lista di <li> montata prima al div #lista
-        $("#lista").append(output.join("")).listview("refresh");
+        $("#lista").append(output.join(""));
+		//Ordino
+		var mylist = $("#lista");
+		var listitems = mylist.children('li').get();
+		listitems.sort(function(a, b) {
+		   var compA = $(a).text().toUpperCase();
+		   var compB = $(b).text().toUpperCase();
+		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		})
+		$.each(listitems, function(idx, itm) { mylist.append(itm); });
+		
+		$("#lista").listview("refresh");
     });
     
     //Associo lo swipe dx e sx alla schermata della scheda
@@ -103,7 +114,9 @@ function crea_scheda(num_scheda){
                          output.push("<img src='img/icona_ita.png'>");                             
                     }
                 output.push("</div>");
-                output.push("<p>Publication's date: <b>"+data_pubblicazione+"</b></p>");
+				if (data_pubblicazione.length>0){
+					output.push("<p>Publication's date: <b>"+data_pubblicazione+"</b></p>");
+				}
                 output.push("<div class='ui-grid-a'>");
                     output.push("<div class='ui-block-a'>");
                         output.push("<h4>Printed</h4>");
@@ -132,12 +145,16 @@ function crea_scheda(num_scheda){
             output.push("</div>");
             output.push("<p>&nbsp;</p>");
             output.push(presentazione);
-            output.push("<h4>Contents</h4>");
-            output.push(indice);
+			if (indice.length>0){
+				output.push("<h4>Contents</h4>");
+				output.push(indice);
+			}
             output.push("<h4>Authors</h4>");
-            output.push(autori);
-            output.push("<h4>Readership</h4>");
-            output.push(destinatari);
+            output.push(autori);			
+			if (destinatari.length>0){
+				output.push("<h4>Readership</h4>");
+				output.push(destinatari);
+			}
             if (recensioni.length>16) {
                 output.push("<h4>Reviews</h4>");
                 output.push(recensioni);
